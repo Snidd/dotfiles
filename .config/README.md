@@ -3,6 +3,6 @@ Inital version of my README, will add the commands needed to install all package
 
 ```sudo pacman -S - < packages.txt```
 
-Then we need to install rust toolchain
+en we need to install rust toolchain
 
 ``` rustup default stable ```
