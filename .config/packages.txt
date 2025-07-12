@@ -33,6 +33,7 @@ openssh
 polkit
 ripgrep
 rofi-wayland
+rustup
 sudo
 sway
 swayidle
