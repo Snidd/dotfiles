@@ -1,3 +1,3 @@
 function swaycfg
-       vim ~/.config/sway/config
+       nvim ~/.config/sway/config
 end       

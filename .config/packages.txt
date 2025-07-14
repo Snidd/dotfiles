@@ -1,7 +1,4 @@
-1password
 alacritty
-apple-bcm-firmware
-apple-t2-audio-config
 base
 base-devel
 easyeffects
@@ -19,9 +16,6 @@ grub
 impala
 iwd
 kitty
-linux-firmware
-linux-t2
-linux-t2-headers
 mako
 man-db
 neovim
@@ -37,8 +31,6 @@ rustup
 sudo
 sway
 swayidle
-t2fanrd
-tiny-dfr
 unzip
 vim
 waybar

@@ -116,7 +116,13 @@ set $orange #fe8019
 ### Output configuration
 #
 #
-output HDMI-A-1 resolution 1920x1080 position 1920,0
+output DP-4 resolution 2560x1440 position 0,0
+output DP-5 resolution 2560x1440 position 2560,0
+
+workspace 1 output DP-5
+workspace 2 output DP-5
+workspace 3 output DP-4
+workspace 4 output DP-4
 
 ### Idle configuration
 #
@@ -152,7 +158,7 @@ exec swayidle -w \
 
 ### Font Configuration
 
-font pango:Iosevka Nerd Font Mono 12
+font pango:Hack Nerd Font Mono 14
 
 ### Autostart
 
