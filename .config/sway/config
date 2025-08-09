@@ -18,7 +18,7 @@ set $right l
 set $term alacritty 
 
 # Your preferred application launcher
-set $menu fuzzel -l 3
+set $menu fuzzel -f "Hack Nerd Font Mono"
 
 # File Manager
 set $file-manager nemo
@@ -121,8 +121,13 @@ output DP-5 resolution 2560x1440 position 2560,0
 
 workspace 1 output DP-5
 workspace 2 output DP-5
-workspace 3 output DP-4
-workspace 4 output DP-4
+workspace 3 output DP-5
+workspace 4 output DP-5
+workspace 5 output DP-5
+workspace 6 output DP-4
+workspace 7 output DP-4
+workspace 8 output DP-4
+workspace 10 output DP-4
 
 ### Idle configuration
 #
@@ -223,10 +228,6 @@ for_window [app_id="org.pulseaudio.pavucontrol"] floating enable, move position 
     # Clipboard
     bindsym $mod+v exec cliphist list | rofi -dmenu -p "Clipboard" -theme ~/.config/rofi/clipboard.rasi | cliphist decode | wl-copy
 
-    # Emoji Picker
-    bindsym $mod+s exec rofi -show emoji -modi emoji -matching regex -sorting-method levenshtein
-
-
     # Lock
     bindsym $mod+shift+t exec $lock
 
@@ -244,6 +245,8 @@ for_window [app_id="org.pulseaudio.pavucontrol"] floating enable, move position 
 
     # Call the browser variable and launch it with $mod+b
     bindsym $mod+b exec $web-browser
+
+    bindsym $mod+shift+m exec swaymsg "workspace 6; exec $web-browser --new-window https://www.messenger.com"
 
     # Kill focused window
     bindsym $mod+w kill
@@ -267,6 +270,7 @@ for_window [app_id="org.pulseaudio.pavucontrol"] floating enable, move position 
     floating_modifier $mod normal
     bindsym $mod+button1 resize
 
+    bindsym $mod+s exec grim -o DP-5 - | wl-copy
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
@@ -309,7 +313,8 @@ bindsym --no-repeat $mod+6 workspace number 6; exec "echo 1 > /tmp/sovpipe"
 bindsym --no-repeat $mod+7 workspace number 7; exec "echo 1 > /tmp/sovpipe"
 bindsym --no-repeat $mod+8 workspace number 8; exec "echo 1 > /tmp/sovpipe"
 bindsym --no-repeat $mod+9 workspace number 9; exec "echo 1 > /tmp/sovpipe"
-bindsym --no-repeat $mod+0 workspace number 10; exec "echo 1 > /tmp/sovpipe"
+bindsym --no-repeat $mod+section workspace number 10; exec "echo 1 > /tmp/sovpipe"
+# bind § to workspace 0
 
 bindsym --release $mod+1 exec "echo 0 > /tmp/sovpipe"
 bindsym --release $mod+2 exec "echo 0 > /tmp/sovpipe"
@@ -320,7 +325,7 @@ bindsym --release $mod+6 exec "echo 0 > /tmp/sovpipe"
 bindsym --release $mod+7 exec "echo 0 > /tmp/sovpipe"
 bindsym --release $mod+8 exec "echo 0 > /tmp/sovpipe"
 bindsym --release $mod+9 exec "echo 0 > /tmp/sovpipe"
-bindsym --release $mod+0 exec "echo 0 > /tmp/sovpipe"
+bindsym --release $mod+section exec "echo 0 > /tmp/sovpipe"
 
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1
@@ -332,7 +337,7 @@ bindsym --release $mod+0 exec "echo 0 > /tmp/sovpipe"
     bindsym $mod+Shift+7 move container to workspace number 7
     bindsym $mod+Shift+8 move container to workspace number 8
     bindsym $mod+Shift+9 move container to workspace number 9
-    bindsym $mod+Shift+0 move container to workspace number 10
+    bindsym $mod+Shift+section move container to workspace number 10
 
 
 # Note: workspaces can have any name you want, not just numbers.
