@@ -98,20 +98,14 @@ exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov -t 
 #set $white  #ffffff
 #set $orange #ffbb8a
 
-set $bg0    #282828
-set $bg1    #3c3836
-set $fg     #ebdbb2
-set $green  #b8bb26
-set $blue   #83a598
-set $yellow #fabd2f
-set $gray   #928374
-set $red    #fb4934
-set $magenta #d3869b
-set $cyan   #8ec07c
-set $white  #ebdbb2
-set $orange #fe8019
-
-
+# Blue-black theme variables
+set $bg_deep   #030814
+set $bg_dark   #071428
+set $bg_mid    #0b2a42
+set $accent    #4fc9ff
+set $accent2   #2bb0ff
+set $muted     #6b8ea0
+set $text      #e6f9ff
 
 ### Output configuration
 #
@@ -246,7 +240,7 @@ for_window [app_id="org.pulseaudio.pavucontrol"] floating enable, move position 
     # Call the browser variable and launch it with $mod+b
     bindsym $mod+b exec $web-browser
 
-    bindsym $mod+shift+m exec swaymsg "workspace 6; exec $web-browser --new-window https://www.messenger.com"
+    bindsym $mod+shift+m exec swaymsg "workspace 6; exec $web-browser --new-window https://www.messenger.com; exec slack; exec teams-for-linux"
 
     # Kill focused window
     bindsym $mod+w kill
@@ -309,10 +303,10 @@ bindsym --no-repeat $mod+2 workspace number 2; exec "echo 1 > /tmp/sovpipe"
 bindsym --no-repeat $mod+3 workspace number 3; exec "echo 1 > /tmp/sovpipe"
 bindsym --no-repeat $mod+4 workspace number 4; exec "echo 1 > /tmp/sovpipe"
 bindsym --no-repeat $mod+5 workspace number 5; exec "echo 1 > /tmp/sovpipe"
-bindsym --no-repeat $mod+6 workspace number 6; exec "echo 1 > /tmp/sovpipe"
-bindsym --no-repeat $mod+7 workspace number 7; exec "echo 1 > /tmp/sovpipe"
-bindsym --no-repeat $mod+8 workspace number 8; exec "echo 1 > /tmp/sovpipe"
-bindsym --no-repeat $mod+9 workspace number 9; exec "echo 1 > /tmp/sovpipe"
+bindsym --no-repeat $mod+f1 workspace number 6; exec "echo 1 > /tmp/sovpipe"
+bindsym --no-repeat $mod+f2 workspace number 7; exec "echo 1 > /tmp/sovpipe"
+bindsym --no-repeat $mod+f3 workspace number 8; exec "echo 1 > /tmp/sovpipe"
+bindsym --no-repeat $mod+f4 workspace number 9; exec "echo 1 > /tmp/sovpipe"
 bindsym --no-repeat $mod+section workspace number 10; exec "echo 1 > /tmp/sovpipe"
 # bind § to workspace 0
 
@@ -321,10 +315,10 @@ bindsym --release $mod+2 exec "echo 0 > /tmp/sovpipe"
 bindsym --release $mod+3 exec "echo 0 > /tmp/sovpipe"
 bindsym --release $mod+4 exec "echo 0 > /tmp/sovpipe"
 bindsym --release $mod+5 exec "echo 0 > /tmp/sovpipe"
-bindsym --release $mod+6 exec "echo 0 > /tmp/sovpipe"
-bindsym --release $mod+7 exec "echo 0 > /tmp/sovpipe"
-bindsym --release $mod+8 exec "echo 0 > /tmp/sovpipe"
-bindsym --release $mod+9 exec "echo 0 > /tmp/sovpipe"
+bindsym --release $mod+f1 exec "echo 0 > /tmp/sovpipe"
+bindsym --release $mod+f2 exec "echo 0 > /tmp/sovpipe"
+bindsym --release $mod+f3 exec "echo 0 > /tmp/sovpipe"
+bindsym --release $mod+f4 exec "echo 0 > /tmp/sovpipe"
 bindsym --release $mod+section exec "echo 0 > /tmp/sovpipe"
 
     # Move focused container to workspace
@@ -333,10 +327,10 @@ bindsym --release $mod+section exec "echo 0 > /tmp/sovpipe"
     bindsym $mod+Shift+3 move container to workspace number 3
     bindsym $mod+Shift+4 move container to workspace number 4
     bindsym $mod+Shift+5 move container to workspace number 5
-    bindsym $mod+Shift+6 move container to workspace number 6
-    bindsym $mod+Shift+7 move container to workspace number 7
-    bindsym $mod+Shift+8 move container to workspace number 8
-    bindsym $mod+Shift+9 move container to workspace number 9
+    bindsym $mod+Shift+f1 move container to workspace number 6
+    bindsym $mod+Shift+f2 move container to workspace number 7
+    bindsym $mod+Shift+f3 move container to workspace number 8
+    bindsym $mod+Shift+f4 move container to workspace number 9
     bindsym $mod+Shift+section move container to workspace number 10
 
 
@@ -415,6 +409,8 @@ bindsym $mod+r mode "resize"
     # Special key to take a screenshot with grim
     bindsym Print exec flameshot gui
 
+output * background ~/.config/sway/space-mtg.png fill
+
 #
 # Status Bar:
 #
@@ -439,16 +435,16 @@ bindsym $mod+r mode "resize"
 include @sysconfdir@/sway/config.d/*
 
 ## Sway Borders
-
+client.focused          $accent   $bg_mid   $accent   $text
+client.focused_inactive $bg_mid   $bg_dark  $bg_mid   $muted
+client.unfocused        $bg_dark  $bg_deep  $bg_dark  $muted
+client.urgent           $accent2  $bg_dark  $accent2  $text
 
 # Focused window (active)
-client.focused $cyan $bg1 $fg $yellow $cyan
 
 # Unfocused window (inactive)
-client.unfocused $bg0 $bg1 $gray $bg0 $bg1
 
 # Urgent window (e.g., alerts)
-client.urgent $yellow $bg1 $fg $yellow $yellow
 
 
 # Borders and Gaps.
