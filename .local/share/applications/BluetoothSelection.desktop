@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Bluetooth BZMenu
+Comment=Open Bluetooth menu
+Exec=bzmenu -l fuzzel
+Icon=/usr/share/icons/AdwaitaLegacy/24x24/devices/bluetooth.png
+Terminal=false
+Type=Application
+Categories=System;

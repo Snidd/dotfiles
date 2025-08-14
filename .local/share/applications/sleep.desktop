@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Sleep computer
+Comment=Put the computer into suspend mode
+Exec=systemctl suspend
+Icon=~/Downloads/sleep-icon.png
+Terminal=false
+Type=Application
+Categories=System;
