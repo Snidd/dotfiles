@@ -18,7 +18,7 @@ set $right l
 set $term alacritty 
 
 # Your preferred application launcher
-set $menu fuzzel -f "Hack Nerd Font Mono"
+set $menu sherlock 
 
 # File Manager
 set $file-manager nemo
@@ -126,7 +126,7 @@ workspace 10 output DP-4
 ### Idle configuration
 #
 exec swayidle -w \
-    timeout 300 'swaylock \
+    timeout 900 'swaylock \
         --color 2d353b \
         --inside-color 3a454a \
         --inside-clear-color 5c6a72 \
